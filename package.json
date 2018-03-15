@@ -1,0 +1,31 @@
+{
+  "name": "simpleviewer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "forge-data-management": "^2.1.1",
+    "forge-model-derivative": "^2.1.1",
+    "forge-oauth2": "^1.1.2",
+    "node-sass-chokidar": "0.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-load-script": "0.0.6",
+    "react-scripts": "1.1.1",
+    "react-virtualized": "^9.18.5",
+    "redux": "^3.7.2"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/scss/ -o src/css/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start": "npm-run-all -p watch-css start-js",
+    "start-js": "react-scripts start",
+    "build-js": "react-scripts build",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "classnames": "^2.2.5",
+    "npm-run-all": "^4.1.2"
+  }
+}

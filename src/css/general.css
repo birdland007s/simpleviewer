@@ -1,0 +1,116 @@
+*,
+*:before,
+*:after {
+  cursor: default;
+  box-sizing: border-box; }
+
+a[href^='http://'],
+a[href^='https://'] {
+  cursor: pointer; }
+
+html,
+body {
+  height: 100%; }
+
+body {
+  margin: 0;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  -webkit-touch-callout: none; }
+
+img,
+svg {
+  vertical-align: middle; }
+
+a {
+  color: #4895d9; }
+
+.app {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.simpleview-app {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0px);
+  transition: transform 200ms ease-in-out; }
+  .simpleview-app.view-info-open {
+    transform: translateX(-268px); }
+  .simpleview-app.navigation-open {
+    transform: translateX(216px); }
+  .simpleview-app .view-editor {
+    flex: 1 1 auto; }
+  @media only screen and (max-width: 750px) {
+    .simpleview-app .view-editor {
+      position: absolute;
+      flex: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: -1;
+      transition: all 200ms ease-in-out; }
+    .simpleview-app.view-open .view-editor {
+      opacity: 1; }
+    .simpleview-app.view-info-open .view-editor {
+      opacity: 0.25; }
+    .simpleview-app.navigation-open .view-editor {
+      opacity: 0; } }
+
+.panel-title {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 86%;
+  color: #575e65; }
+
+/* Fade content when toolbars are visible */
+.view-info-open .view-editor,
+.view-info-open .source-list {
+  opacity: 0.25;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none; }
+
+.navigation-open .view-editor,
+.navigation-open .source-list {
+  opacity: 0.25;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none; }
+
+.is-macos .view-editor-controls {
+  box-sizing: border-box;
+  -webkit-app-region: drag;
+  padding: 40px 0 30px; }
+
+.is-macos .search-bar {
+  padding: 40px 15px 30px;
+  box-sizing: border-box;
+  -webkit-app-region: drag; }
+
+.is-macos .placeholder-view-detail .placeholder-view-toolbar {
+  height: 71px;
+  -webkit-app-region: drag; }
+
+.is-macos .navigation,
+.is-macos .view-info {
+  padding-top: 10px; }
+
+.is-macos .button,
+.is-macos .search-field {
+  -webkit-app-region: no-drag; }
+
+.is-macos .revision-selector {
+  -webkit-app-region: drag; }
+
+.search-match {
+  background-color: #4895d9;
+  border-radius: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: #fff; }

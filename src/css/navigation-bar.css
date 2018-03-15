@@ -1,0 +1,98 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: -216px;
+  width: 216px;
+  height: 100%;
+  overflow: hidden;
+  border-right: 1px solid #dbdee0;
+  background: white; }
+
+.navigation-folders {
+  flex: none;
+  padding: 10px 0; }
+
+.navigation-folders-item,
+.navigation-tools-item,
+.navigation-folders-item-selected {
+  width: 100%;
+  line-height: 2em;
+  padding: 8px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left; }
+  .navigation-folders-item svg,
+  .navigation-tools-item svg,
+  .navigation-folders-item-selected svg {
+    fill: #899199; }
+
+.navigation-folders-item-selected span {
+  color: #4895d9; }
+
+.navigation-folders-item-selected svg[class^='icon-'] {
+  fill: #4895d9; }
+
+.theme-light .navigation-folders-item:active, .theme-light .navigation-folders-item.active,
+.theme-light .navigation-tools-item:active,
+.theme-light .navigation-tools-item.active,
+.theme-dark .navigation-folders-item:active,
+.theme-dark .navigation-folders-item.active,
+.theme-dark .navigation-tools-item:active,
+.theme-dark .navigation-tools-item.active {
+  color: #4895d9; }
+  .theme-light .navigation-folders-item:active svg[class^='icon-'], .theme-light .navigation-folders-item.active svg[class^='icon-'],
+  .theme-light .navigation-tools-item:active svg[class^='icon-'],
+  .theme-light .navigation-tools-item.active svg[class^='icon-'],
+  .theme-dark .navigation-folders-item:active svg[class^='icon-'],
+  .theme-dark .navigation-folders-item.active svg[class^='icon-'],
+  .theme-dark .navigation-tools-item:active svg[class^='icon-'],
+  .theme-dark .navigation-tools-item.active svg[class^='icon-'] {
+    fill: #4895d9; }
+
+.navigation-tags {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  flex: 0 1 auto;
+  overflow: hidden;
+  min-height: 9em;
+  padding: 12px 0 0;
+  border-top: 1px solid #dbdee0; }
+  .navigation-tags .tag-list-title {
+    padding: 8px 20px 0; }
+  .navigation-tags .editable-list-item {
+    padding: 0 5px 0 20px; }
+
+.navigation-tools {
+  flex: 1 0 auto;
+  padding: 10px 0;
+  border-top: 1px solid #dbdee0; }
+
+.navigation-footer {
+  display: flex;
+  flex: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px 20px 20px;
+  color: #575e65; }
+
+.is-electron .navigation-tools,
+.is-electron .navigation-footer {
+  display: none; }
+
+.navigation-footer-item {
+  margin-right: 10px; }
+  .navigation-footer-item:last-child {
+    margin-right: 0; }
+
+.navigation-icon {
+  display: inline-block;
+  margin-right: 0.5em;
+  vertical-align: middle; }
+  .navigation-icon svg {
+    vertical-align: middle;
+    position: relative;
+    top: -0.2em; }
