@@ -100,24 +100,24 @@ var buildViewMenu = function(settings) {
           ]),
       },
       {
-        label: '&Note Display',
+        label: '&View Display',
         submenu: [
           [
             '&Comfy',
             'comfy',
-            { action: 'setNoteDisplay', noteDisplay: 'comfy' },
+            { action: 'setViewDisplay', viewDisplay: 'comfy' },
           ],
           [
             'C&ondensed',
             'condensed',
-            { action: 'setNoteDisplay', noteDisplay: 'condensed' },
+            { action: 'setViewDisplay', viewDisplay: 'condensed' },
           ],
           [
             '&Expanded',
             'expanded',
-            { action: 'setNoteDisplay', noteDisplay: 'expanded' },
+            { action: 'setViewDisplay', viewDisplay: 'expanded' },
           ],
-        ].map(buildRadioGroup(equalTo(settings.noteDisplay))),
+        ].map(buildRadioGroup(equalTo(settings.viewDisplay))),
       },
       {
         label: '&Theme',

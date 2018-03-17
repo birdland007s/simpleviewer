@@ -35,12 +35,12 @@ AutoUpdater.prototype.ping = function() {
 	autoUpdater.checkForUpdates();
 };
 
-AutoUpdater.prototype.onDownloaded = function( event, releaseNotes, releaseName, releaseDate, updateUrl, quitAndUpdate ) {
+AutoUpdater.prototype.onDownloaded = function( event, releaseViews, releaseName, releaseDate, updateUrl, quitAndUpdate ) {
 	const updateDialogOptions = {
 		buttons: [ 'Update & Restart', 'Cancel' ],
 		title: 'Update Available',
 		message: releaseName,
-		detail: releaseNotes
+		detail: releaseViews
 	};
 
 	if ( this.hasPrompted === false ) {

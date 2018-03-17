@@ -49,7 +49,7 @@ ManualUpdater.prototype.onAvailable = function( update ) {
 		buttons: [ 'Download', 'Cancel' ],
 		title: 'Update Available',
 		message: update.name,
-		detail: update.notes + '\n\nYou will need to download and install the new version manually.'
+		detail: update.views + '\n\nYou will need to download and install the new version manually.'
 	};
 
 	if ( ! this.hasPrompted ) {
