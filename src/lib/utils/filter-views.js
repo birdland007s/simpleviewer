@@ -56,10 +56,10 @@ export const searchPattern = filter => {
   );
 };
 
-const matchesTrashView = isViewingTrash => view =>
-  isViewingTrash === !!get(view, 'data.deleted', false);
+const matchesTrashView = isViewingTrash => viewer =>
+  isViewingTrash === !!get(viewer, 'data.deleted', false);
 
-const matchesTag = (tag, filter = '') => view => {
+const matchesTag = (tag, filter = '') => viewer => {
   let filterTags = [];
   let match;
   const matcher = tagPattern();
@@ -74,19 +74,19 @@ const matchesTag = (tag, filter = '') => view => {
 
   const givenTag = tag ? [get(tag, 'data.name', '')] : [];
 
-  const viewTags = get(view, 'data.tags', []);
+  const viewerTags = get(viewer, 'data.tags', []);
 
-  const missingTags = difference([...filterTags, ...givenTag], viewTags);
+  const missingTags = difference([...filterTags, ...givenTag], viewerTags);
 
   return missingTags.length === 0;
 };
 
-const matchesSearch = (filter = '') => view => {
+const matchesSearch = (filter = '') => viewer => {
   if (!filter) {
     return true;
   }
 
-  const content = get(view, 'data.content');
+  const content = get(viewer, 'data.content');
 
   if (!content) {
     return false;
@@ -100,12 +100,12 @@ const matchesSearch = (filter = '') => view => {
 export default function filterViews(state) {
   const {
     filter, // {string} search query from input
-    views, // {[view]} list of all available views
-    showTrash, // {bool} whether we are looking at the trashed views
+    viewers, // {[viewer]} list of all available viewers
+    showTrash, // {bool} whether we are looking at the trashed viewers
     tag, // {tag|null} whether we are looking at a specific tag
   } = state;
 
-  return views.filter(
+  return viewers.filter(
     overEvery([
       matchesTrashView(showTrash),
       matchesTag(tag, filter),

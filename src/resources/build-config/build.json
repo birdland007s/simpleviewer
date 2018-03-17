@@ -1,0 +1,10 @@
+{
+  "bundleId": "com.automattic.simpleview",
+  "name": "Simpleview",
+  "productName": "Simpleview",
+  "author": "Automattic, Inc.",
+  "copyright": "Copyright (C) Automattic, Inc.",
+  "directories": {
+    "output": "release"
+  }
+}
