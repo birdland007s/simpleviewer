@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './scss/App.scss';
 import App from './lib/app';
+import connectApp from './lib/containers/connectApp';
 import registerServiceWorker from './registerServiceWorker';
 import getConfig from './get-config';
 import simperium from './lib/simperium';
@@ -176,7 +177,7 @@ let props = {
 
 ReactDOM.render(
     <Provider store={store}>
-    <App />
+    <connectApp />
     </Provider>,
      document.getElementById('root')
 );

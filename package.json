@@ -1,8 +1,10 @@
 {
   "name": "simpleviewer",
   "version": "0.1.0",
+  "main": "desktop/index.js",
   "private": true,
   "dependencies": {
+    "electron-window-state": "^4.1.1",
     "forge-data-management": "^2.1.1",
     "forge-model-derivative": "^2.1.1",
     "forge-oauth2": "^1.1.2",

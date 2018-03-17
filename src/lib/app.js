@@ -1,11 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import appState from './flux/app-state';
-import reduxActions from './state/actions';
-import selectors from './state/selectors';
-import browserShell from './browser-shell';
 import { ContextMenu, MenuItem, Separator } from './context-menu';
 import * as Dialogs from './dialogs/index';
 import exportViews from './utils/export';
@@ -33,49 +27,9 @@ import {
   values,
 } from 'lodash';
 
-import * as settingsActions from './state/settings/actions';
 
 import filterViews from './utils/filter-views';
 import SearchBar from './search-bar';
-
-const mapStateToProps = state => ({
-  ...state,
-  authIsPending: selectors.auth.authIsPending(state),
-  isAuthorized: selectors.auth.isAuthorized(state),
-});
-
-function mapDispatchToProps(dispatch, { viewBucket }) {
-  var actionCreators = Object.assign({}, appState.actionCreators);
-
-  const thenReloadViews = action => a => {
-    dispatch(action(a));
-    dispatch(actionCreators.loadViews({ viewBucket }));
-  };
-
-  return {
-    actions: bindActionCreators(actionCreators, dispatch),
-    ...bindActionCreators(
-      pick(settingsActions, [
-        'activateTheme',
-        'decreaseFontSize',
-        'increaseFontSize',
-        'resetFontSize',
-        'setViewDisplay',
-        'setMarkdown',
-        'setAccountName',
-      ]),
-      dispatch
-    ),
-    setSortType: thenReloadViews(settingsActions.setSortType),
-    toggleSortOrder: thenReloadViews(settingsActions.toggleSortOrder),
-
-    openTagList: () => dispatch(actionCreators.toggleNavigation()),
-    resetAuth: () => dispatch(reduxActions.auth.reset()),
-    setAuthorized: () => dispatch(reduxActions.auth.setAuthorized()),
-    setSearchFocus: () =>
-      dispatch(actionCreators.setSearchFocus({ searchFocus: true })),
-  };
-}
 
 class App extends React.Component {
 
